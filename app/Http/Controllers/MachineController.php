@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Provinces;
+use App\Models\Machine;
 use Illuminate\Http\Request;
 
-class ProvincesController extends Controller
+class MachineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProvincesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Provinces $provinces)
+    public function show(Machine $machines)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProvincesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Provinces $provinces)
+    public function edit(Machine $machines)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProvincesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Provinces $provinces)
+    public function update(Request $request, Machine $machines)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProvincesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Provinces $provinces)
+    public function destroy(Machine $machines)
     {
         //
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Machines;
+use App\Models\Work;
 use Illuminate\Http\Request;
 
-class MachinesController extends Controller
+class WorkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class MachinesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Machines $machines)
+    public function show(Work $work)
     {
         //
     }
@@ -42,7 +42,7 @@ class MachinesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Machines $machines)
+    public function edit(Work $work)
     {
         //
     }
@@ -50,7 +50,7 @@ class MachinesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Machines $machines)
+    public function update(Request $request, Work $work)
     {
         //
     }
@@ -58,7 +58,7 @@ class MachinesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Machines $machines)
+    public function destroy(Work $work)
     {
         //
     }
