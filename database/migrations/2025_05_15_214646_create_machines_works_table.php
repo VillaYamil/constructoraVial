@@ -17,13 +17,13 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('reason_end');
-            $table->integer('kilometers');
+            $table->integer('km');
 
             $table->foreignId('machine_id')
                   ->constrained()
                   ->onDelete('cascade');
 
-            $table->foreignId('works_id')
+            $table->foreignId('work_id')
                   ->constrained()
                   ->onDelete('cascade');
 

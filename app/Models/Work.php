@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Work extends Model
 {
-    protected $fillable = ['id','name','start_date','end_date','provinces_id'];
+    protected $fillable = ['name','start_date','end_date','province_id'];
 
-    public function provinces(){
+    public function province(){
 
-        return $this->hasMany(Province::class);
+        return $this->belongsTo(Province::class);
 
     }
 
-    public function machines_works(){
+    public function machineWorks(){
 
-        return $this->hasMany(Machine_Work::class);
+        return $this->hasMany(MachineWork::class);
     }
 }

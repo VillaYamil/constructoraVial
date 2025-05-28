@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Machine_Work extends Model
+class MachineWork extends Model
 {
-    protected $fillable = ['id','start_date','end_date','reason_end','km','machine_id','works_id'];
+    protected $fillable = ['start_date','end_date','reason_end','km','machine_id','work_id'];
 
-    public function machines(){
+    public function machine(){
 
-        return $this->hasMany(Machine::class);
+        return $this->belongsTo(Machine::class);
     }
 
-    public function works(){
+    public function work() {
 
-        return $this->hasMany(Work::class);
-    }
+    return $this->belongsTo(Work::class);
+
+}
 }

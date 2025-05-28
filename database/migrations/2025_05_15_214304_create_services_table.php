@@ -16,7 +16,12 @@ return new class extends Migration
 
             $table->string('description');
             $table->date('maintenance_date');
+            $table->integer('km');
             
+            $table->foreignId('machine_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

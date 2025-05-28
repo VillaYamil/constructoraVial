@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Province extends Model
 {
-    protected $fillable = ['id','name'];
+    protected $fillable = ['name'];
 
     public function works(){
 
-        return $this->belongsTo(Work::class);
+        return $this->hasMany(Work::class);
 
     }
 }

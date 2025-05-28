@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeMachine extends Model
 {
-    protected $fillable = ['id','name','description'];
+    protected $fillable = ['name','description'];
 
     public function machines(){
         
-        return $this->belongsTo(Machine::class);
+        return $this->hasMany(Machine::class);
 
     }
 }

@@ -14,17 +14,13 @@ return new class extends Migration
         Schema::create('machines', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('serial_number');
+            $table->string('serial_number');
             $table->string('brand_model');
-            $table->integer('kilometers');
+            $table->integer('km');
 
-            $table->foreignId('type_machines_id')
+            $table->foreignId('type_machine_id')
                   ->constrained()
                   ->onDelete('cascade');  
-                  
-            $table->foreignId('services_id')
-                  ->constrained()
-                  ->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -6,20 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Machine extends Model
 {
-    protected $fillable = ['id','serial_number','brand_mode','type_machines_id'];
+    protected $fillable = ['serial_number','brand_model','km','type_machine_id'];
     
-    public function typeMachines(){
+    public function typeMachine(){
 
-        return $this->hasMany(TypeMachine::class);
+        return $this->belongsTo(TypeMachine::class);
     }
     
     public function services(){
 
-        return $this->belongsTo(Service::class);
+        return $this->hasMany(Service::class);
     }
 
-    public function works(){
+    public function machineWorks(){
 
-        return $this->belongsTo(Work::class);
+        return $this->hasMany(MachineWork::class);
     }
 }
