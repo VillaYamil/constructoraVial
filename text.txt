@@ -1,0 +1,31 @@
+3. Controladores y Vistas
+Podrías dividirlo así:
+
+Controlador de Tipo de Máquinas (ABM)
+
+Controlador de Máquinas (ABM)
+
+Controlador de Obras (ABM)
+
+Controlador de Asignaciones (crear, finalizar, historial)
+
+Consultas y reportes
+
+4. Validaciones importantes
+Al crear una asignación, chequear si ya hay una activa.
+
+No permitir finalizar sin ingresar km y motivo.
+
+No permitir reasignar una máquina sin finalizar la anterior.
+
+5. Consultas útiles en el sistema
+Máquinas activas: Asignacion::whereNull('fecha_fin')
+
+Historial de máquina: Asignacion::where('maquina_id', $id)->orderBy('fecha_inicio')
+
+6. Extras si tenés tiempo
+Alertas por km recorridos
+
+Reportes PDF (con Laravel DomPDF)
+
+Mapa (usando Leaflet.js o Google Maps)

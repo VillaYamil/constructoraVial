@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MachineController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/machine', [MachineController::class, 'index'])->name('machine.index');
+Route::get('/machine/create', [MachineController::class, 'create'])->name('machine.create');
+Route::post('/machine/store', [MachineController::class, 'store'])->name('machine.store');

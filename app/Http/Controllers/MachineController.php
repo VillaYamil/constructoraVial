@@ -12,7 +12,7 @@ class MachineController extends Controller
      */
     public function index()
     {
-        //
+        return view('machine.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class MachineController extends Controller
      */
     public function create()
     {
-        //
+        return view('machine.create');
     }
 
     /**
@@ -28,7 +28,16 @@ class MachineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+    
+        $machine = new Machine();
+        $machine->serial_number = $data['serial_number'];
+        $machine->brand_model = $data['brand_model'];
+        $machine->km = $data['km'];
+
+        $machine->save();
+
+        return redirect('/machine');
     }
 
     /**

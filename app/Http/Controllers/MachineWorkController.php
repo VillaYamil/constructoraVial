@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Machine_Work;
+use App\Models\MachineWork;
 use Illuminate\Http\Request;
 
 class MachineWorkController extends Controller

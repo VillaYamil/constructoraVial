@@ -12,20 +12,16 @@ class TypeMachineSeeder extends Seeder
         DB::table('type_machines')->insert([
             [
                 'name' => 'Tractor',
-                'description' => 'Máquina agrícola que se utiliza para arrastrar y operar implementos de labranza.',
+                'description' => 'Máquina tractor.',
             ],
             [
-                'name' => 'Cosechadora',
-                'description' => 'Equipo que se utiliza para recolectar granos y otros cultivos del campo.',
+                'name' => 'Pala',
+                'description' => 'Equipo pala.',
             ],
             [
-                'name' => 'Sembradora',
-                'description' => 'Máquina diseñada para colocar semillas en el suelo con precisión.',
-            ],
-            [
-                'name' => 'Pulverizadora',
-                'description' => 'Equipo utilizado para aplicar pesticidas, herbicidas o fertilizantes líquidos.',
+                'name' => 'Hormigonera',
+                'description' => 'Máquina hormigonera.',
             ],
         ]);
-    }
+    }s
 }
