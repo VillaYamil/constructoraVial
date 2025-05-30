@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Machine;
+use App\Models\TypeMachine;
 use Illuminate\Http\Request;
 
 class MachineController extends Controller
@@ -20,7 +21,9 @@ class MachineController extends Controller
      */
     public function create()
     {
-        return view('machine.create');
+        $tipos = TypeMachine::all(); // Trae todos los tipos
+
+        return view('machine.create', compact('tipos'));
     }
 
     /**
@@ -28,12 +31,20 @@ class MachineController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'serial_number' => 'required|string|max:255',
+            'brand_model' => 'required|string|max:255',
+            'km' => 'required|numeric',
+            'type_machine_id' => 'required|exists:type_machines,id', //en validaciones se tiene que poner el nombre tal cual de la tabla
+        ]);
+
         $data = $request->all();
     
         $machine = new Machine();
         $machine->serial_number = $data['serial_number'];
         $machine->brand_model = $data['brand_model'];
         $machine->km = $data['km'];
+        $machine->type_machine_id = $data['type_machine_id'];
 
         $machine->save();
 
