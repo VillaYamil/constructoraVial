@@ -8,27 +8,24 @@ use Illuminate\Http\Request;
 
 class MachineController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    //humilde index
     public function index()
     {
-        return view('machine.index');
-    }
+        $machines = Machine::with('typeMachine')->get()->groupBy(function ($machine) {
+        return $machine->typeMachine->name;
+        });
 
-    /**
-     * Show the form for creating a new resource.
-     */
+        return view('machine.index', ['machinesByType' => $machines]);
+    }
+    //humilde crear maquina
     public function create()
     {
         $tipos = TypeMachine::all(); // Trae todos los tipos
 
         return view('machine.create', compact('tipos'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    //humilde guardar maquina
     public function store(Request $request)
     {
         $request->validate([
@@ -48,38 +45,40 @@ class MachineController extends Controller
 
         $machine->save();
 
-        return redirect('/machine');
+        return redirect('/machine')->with('success', 'Máquina guardada correctamente.');
+    }
+    //humilde editar maquina
+    public function edit(Machine $machine)
+    {
+        $tipos = TypeMachine::all();
+
+        return view('machine.edit', compact('machine', 'tipos'));
+    }
+    //humilde actualizar maquina
+    public function update(Request $request, Machine $machine)
+    {
+        $request->validate([
+        'serial_number' => 'required|string|max:255',
+        'brand_model' => 'required|string|max:255',
+        'km' => 'required|numeric',
+        'type_machine_id' => 'required|exists:type_machines,id',
+        ]);
+
+        $machine->serial_number = $request->serial_number;
+        $machine->brand_model = $request->brand_model;
+        $machine->km = $request->km;
+        $machine->type_machine_id = $request->type_machine_id;
+
+        $machine->save();
+
+        return redirect('/machine')->with('success', 'Máquina actualizada correctamente.');
+    }
+    //humilde pero dañino eliminar maquina
+    public function destroy(Machine $machine)
+    {
+        $machine->delete();
+
+        return redirect('/machine')->with('success', 'Máquina eliminada correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Machine $machines)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Machine $machines)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Machine $machines)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Machine $machines)
-    {
-        //
-    }
 }

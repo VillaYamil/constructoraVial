@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\WorkController;
 
 
 Route::get('/', function () {
@@ -21,6 +22,5 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/machine', [MachineController::class, 'index'])->name('machine.index');
-Route::get('/machine/create', [MachineController::class, 'create'])->name('machine.create');
-Route::post('/machine/store', [MachineController::class, 'store'])->name('machine.store');
+Route::resource('machine', MachineController::class);
+Route::resource('work', WorkController::class);

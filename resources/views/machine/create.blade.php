@@ -3,7 +3,7 @@
 
         <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Crear nueva máquina</h1>
 
-        <form action="/machine/store" method="POST">
+        <form action="{{ route('machine.store') }}" method="POST">
             @csrf
 
             <div class="mb-4">
@@ -22,10 +22,12 @@
             </div>
 
             <div class="mb-4">
-                <x-input-label for="type_machine_id" value="Tipo de máquina" />
-
+                <!--<x-input-label for="type_machine_id"  />-->
+                <x-input-label for="type_machine_id">
+                    <span class="block text-sm font-medium text-gray-700" value="Tipo de máquina">Tipo de máquina</span>
+                </x-input-label>
                 <select id="type_machine_id" name="type_machine_id" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200">
-                    <option value="">-- Seleccionar tipo --</option>
+                    <option value="">Seleccione tipo</option>
                     @foreach($tipos as $tipo)
                         <option value="{{ $tipo->id }}" data-description="{{ $tipo->description }}">{{ $tipo->name }}</option>
                     @endforeach
@@ -37,8 +39,11 @@
             </div>
 
             <div class="flex justify-between mt-6">
-                <x-secondary-button type="submit">Enviar</x-secondary-button>
-                <x-secondary-button href="{{ route('machine.index') }}">Volver al inicio</x-secondary-button>
+            <x-secondary-button type="submit">Crear</x-secondary-button>
+
+            <a href="{{ route('machine.index') }}">
+                <x-secondary-button type="button">Volver al inicio</x-secondary-button>
+            </a>
             </div>
         </form>
     </div>
