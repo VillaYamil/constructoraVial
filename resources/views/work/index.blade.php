@@ -16,32 +16,29 @@
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-gray-100">
-
                         <th class="px-4 py-2">ID - Nombre</th>
                         <th class="px-4 py-2">Inicio Obra</th>
                         <th class="px-4 py-2">Fin Obra</th>
                         <th class="px-4 py-2">Provincia</th>
-                        <th class="px-4 py-2">Ruta</th>
+                        <th class="px-4 py-2">Accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($machinesByType as $tipoNombre => $provinces)
-    
-                        <tr class="bg-gray-200">
-                            
-                        </tr>
-                        @foreach ($work as $works)
+                    @foreach ($ByProvince as $province => $works)
+                    
+
+                        @foreach ($works as $work)
                             <tr class="border-b">
-                                <td class="px-4 py-2 text-blue-500 ">{{ $work->id }}</td>
-                                <td class="px-4 py-2 text-blue-500 ">{{ $work->start_date }}</td>
-                                <td class="px-4 py-2 text-blue-500 ">{{ $work->end_date }}</td>
-                                <td class="px-4 py-2 text-blue-500 ">{{ $work->province->name }}</td>
+                                <td class="px-4 py-2 text-white ">{{ $work->id }} - {{ $work->name }}</td>
+                                <td class="px-4 py-2 text-white ">{{ $work->start_date }}</td>
+                                <td class="px-4 py-2 text-white ">{{ $work->end_date }}</td>
+                                <td class="px-4 py-2 text-white ">{{ $work->province->name }}</td>
                                 <td class="px-4 py-2 flex gap-2">
-                                    <a href="{{ route('work.edit', $work->id) }}" class="text-blue-500 ">Editar</a>
+                                    <a href="{{ route('work.edit', $work->id) }}" class="text-blue-500">Editar</a>
                                     <form method="POST" action="{{ route('work.destroy', $work->id) }}" onsubmit="return confirm('¿Estás seguro de eliminar esta obra?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-500 ">Eliminar</button>
+                                        <button type="submit" class="text-red-500">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>

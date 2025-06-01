@@ -11,25 +11,25 @@ class WorkSeeder extends Seeder
     {
         DB::table('works')->insert([
             [
-                'name' => 'Siembra de Maíz',
+                'name' => 'Señalización y Seguridad',
                 'start_date' => '2025-05-01',
                 'end_date' => '2025-05-10',
                 'province_id' => 1,
             ],
             [
-                'name' => 'Cosecha de Soja',
+                'name' => 'Drenaje',
                 'start_date' => '2025-04-15',
                 'end_date' => '2025-04-30',
                 'province_id' => 2,
             ],
             [
-                'name' => 'Aplicación de Herbicida',
+                'name' => 'Intersección',
                 'start_date' => '2025-05-12',
                 'end_date' => '2025-05-14',
                 'province_id' => 3,
             ],
             [
-                'name' => 'Preparación del Suelo',
+                'name' => 'Repavimentación',
                 'start_date' => '2025-03-20',
                 'end_date' => '2025-03-25',
                 'province_id' => 4,
