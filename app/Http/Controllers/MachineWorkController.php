@@ -12,7 +12,7 @@ class MachineWorkController extends Controller
      */
     public function index()
     {
-        //
+        return view('machinework.index');
     }
 
     /**

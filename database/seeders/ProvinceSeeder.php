@@ -31,7 +31,7 @@ class ProvinceSeeder extends Seeder
             ['name' => 'Santa Cruz'],
             ['name' => 'Santa Fe'],
             ['name' => 'Santiago del Estero'],
-            ['name' => 'Tierra del Fuego, Antártida e Islas del Atlántico Sur'],
+            ['name' => 'Tierra del Fuego'],
             ['name' => 'Tucumán'],
             ['name' => 'Ciudad Autónoma de Buenos Aires'],
         ]);

@@ -32,7 +32,16 @@ class MachineController extends Controller
             'serial_number' => 'required|string|max:255',
             'brand_model' => 'required|string|max:255',
             'km' => 'required|numeric',
-            'type_machine_id' => 'required|exists:type_machines,id', //en validaciones se tiene que poner el nombre tal cual de la tabla
+            'type_machine_id' => 'required|exists:type_machines,id',
+        ], [
+            'serial_number.required' => 'El número de serie es obligatorio.',
+            'serial_number.max' => 'El número de serie no debe superar los 255 caracteres.',
+            'brand_model.required' => 'La marca y modelo son obligatorios.',
+            'brand_model.max' => 'La marca y modelo no deben superar los 255 caracteres.',
+            'km.required' => 'El kilometraje es obligatorio.',
+            'km.numeric' => 'El kilometraje debe ser un número.',
+            'type_machine_id.required' => 'El tipo de máquina es obligatorio.',
+            'type_machine_id.exists' => 'El tipo de máquina seleccionado no es válido.',
         ]);
 
         $data = $request->all();
@@ -58,10 +67,19 @@ class MachineController extends Controller
     public function update(Request $request, Machine $machine)
     {
         $request->validate([
-        'serial_number' => 'required|string|max:255',
-        'brand_model' => 'required|string|max:255',
-        'km' => 'required|numeric',
-        'type_machine_id' => 'required|exists:type_machines,id',
+            'serial_number' => 'required|string|max:255',
+            'brand_model' => 'required|string|max:255',
+            'km' => 'required|numeric',
+            'type_machine_id' => 'required|exists:type_machines,id',
+        ], [
+            'serial_number.required' => 'El número de serie es obligatorio.',
+            'serial_number.max' => 'El número de serie no debe superar los 255 caracteres.',
+            'brand_model.required' => 'La marca y modelo son obligatorios.',
+            'brand_model.max' => 'La marca y modelo no deben superar los 255 caracteres.',
+            'km.required' => 'El kilometraje es obligatorio.',
+            'km.numeric' => 'El kilometraje debe ser un número.',
+            'type_machine_id.required' => 'El tipo de máquina es obligatorio.',
+            'type_machine_id.exists' => 'El tipo de máquina seleccionado no es válido.',
         ]);
 
         $machine->serial_number = $request->serial_number;

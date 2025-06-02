@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\MachineWorkController;
 use App\Http\Controllers\WorkController;
 
 
@@ -23,4 +24,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::resource('machine', MachineController::class);
+Route::resource('machinework', MachineWorkController::class);
 Route::resource('work', WorkController::class);
