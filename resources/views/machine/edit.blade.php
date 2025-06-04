@@ -22,7 +22,7 @@
             <!-- Marca / Modelo -->
             <div>
                 <x-input-label for="brand_model">
-                    <span class="block text-sm font-medium text-gray-700">Marca / Modelo</span>
+                    <span class="block text-sm font-medium text-gray-700">Marca</span>
                 </x-input-label>
                 <x-text-input id="brand_model" name="brand_model" type="text" class="mt-1 block w-full"
                               :value="old('brand_model', $machine->brand_model)" required />

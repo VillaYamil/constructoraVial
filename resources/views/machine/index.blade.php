@@ -20,6 +20,7 @@
                         <th class="px-4 py-2">Tipo</th>
                         <th class="px-4 py-2">Serie</th>
                         <th class="px-4 py-2">Marca</th>
+                        <th class="px-4 py-2">km</th>
                         <th class="px-4 py-2">Acciones</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                                 <td class="px-4 py-2 text-white  ">{{ $machine->typeMachine->name }}</td>
                                 <td class="px-4 py-2 text-white ">{{ $machine->serial_number }}</td>
                                 <td class="px-4 py-2 text-white ">{{ $machine->brand_model }}</td>
+                                <td class="px-4 py-2 text-white ">{{ $machine->km }}</td>
                                 <td class="px-4 py-2 flex gap-2">
                                     <a href="{{ route('machine.edit', $machine->id) }}" class="text-blue-500 ">Editar</a>
                                     <form method="POST" action="{{ route('machine.destroy', $machine->id) }}" onsubmit="return confirm('¿Estás seguro de eliminar esta máquina?')">

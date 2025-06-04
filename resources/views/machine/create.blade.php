@@ -12,7 +12,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="brand_model" class="block text-sm font-medium text-gray-700">Modelo:</label>
+                <label for="brand_model" class="block text-sm font-medium text-gray-700">Marca:</label>
                 <x-text-input type="text" name="brand_model" id="brand_model" class="mt-1 block w-full" required />
             </div>
 

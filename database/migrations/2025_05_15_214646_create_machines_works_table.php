@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             
             $table->date('start_date');
-            $table->date('end_date');
-            $table->string('reason_end');
-            $table->integer('km');
+            $table->date('end_date')->nullable();
+            $table->string('reason_end')->nullable();
+            $table->integer('km_start')->nullable();
+            $table->integer('km_end')->nullable();
 
             $table->foreignId('machine_id')
                   ->constrained()

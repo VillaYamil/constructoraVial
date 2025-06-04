@@ -26,3 +26,4 @@ require __DIR__.'/auth.php';
 Route::resource('machine', MachineController::class);
 Route::resource('machinework', MachineWorkController::class);
 Route::resource('work', WorkController::class);
+
